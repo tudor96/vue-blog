@@ -1,5 +1,3 @@
-export interface PostInterface {
-    id: string;
-    title: string;
-    description: string;
-  }
+import { Post } from "@/api/posts";
+
+export type PostInterface = Post;

@@ -1,1 +1,6 @@
-export { sendGetRequest, sendPostRequest, sendPutRequest, sendDeleteRequest } from './network';
+export {
+  sendGetRequest,
+  sendPostRequest,
+  sendPutRequest,
+  sendDeleteRequest,
+} from "./network";

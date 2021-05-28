@@ -1,25 +1,29 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <Post v-bind:post="post" />
-  </div>
+	<div class="home">
+		<Posts v-bind:posts="posts" />
+	</div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import Post from '@/components/Post.vue'; // @ is an alias to /src
-import { PostInterface } from '../interfaces/post.interface';
+import { Component, Vue } from "vue-property-decorator";
+import Posts from "@/components/Posts.vue"; // @ is an alias to /src
+import { PostInterface } from "../interfaces/post.interface";
+import { apiFactory } from "../api";
 
 @Component({
-  components: {
-    Post,
-  },
+	components: {
+		Posts,
+	},
 })
 export default class Home extends Vue {
-  post: PostInterface = {
-    id: 'post_1',
-    title: 'Welcome to the first post',
-    description: 'first description',
-  };
+	posts: PostInterface[] = [];
+
+	async mounted() {
+		const newPosts = await apiFactory().data.posts().getAllPosts();
+		this.posts = newPosts;
+		console.log(newPosts);
+	}
 }
 </script>
+
+<style scoped></style>

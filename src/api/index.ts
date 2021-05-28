@@ -1,4 +1,4 @@
-import { posts } from './posts';
+import { posts } from "./posts";
 // import { account } from './account';
 
 export const apiFactory = () => ({

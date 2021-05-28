@@ -1,13 +1,15 @@
-import { AxiosResponse } from 'axios';
-
+import { AxiosResponse } from "axios";
 
 export interface Post {
-    id: number;
-    title: string;
-    body:string;
+	id: number;
+	title: string;
+	body: string;
 }
 
 export interface PostsRequest extends AxiosResponse {
-    data: Post[];
-  }
-  
+	data: Post[];
+}
+
+export interface PostRequest extends AxiosResponse {
+	data: Post;
+}
